@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontak - PT Adi Buana Perkasa</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">PT Adi Buana Perkasa</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="armada.html">Armada</a></li>
+        <li><a href="kontak.html" class="active">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>Kontak Kami</h1>
+    <p><strong>Alamat:</strong> Jl. Lintas Timur, Sungai Kampar, Riau</p>
+    <p><strong>Email:</strong> 
+      <a href="mailto:info@adibuanaperkasa.co.id">info@adibuanaperkasa.co.id</a>
+    </p>
+    <p><strong>Telepon / WhatsApp:</strong> 
+      <a href="https://wa.me/6282280034389" target="_blank">+62 822 8003 4389</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 PT Adi Buana Perkasa. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navbar = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
