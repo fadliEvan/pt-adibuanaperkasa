@@ -1,3 +1,4 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,9 @@ body {
   background: #e6f2f8;
   color: #333;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Membuat body memenuhi tinggi layar */
 }
 
 /* Header */
@@ -20,15 +24,29 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 header .logo {
   font-size: 1.8em;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffcc00;
 }
 
 /* Menu toggle (hamburger) */
@@ -102,23 +120,39 @@ nav a:hover {
   }
 }
 
-
 /* Hero Section */
 .hero {
   background: linear-gradient(to right, #0077aa, #66ccff);
   color: white;
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
-  box-shadow: inset 0 -10px 30px rgba(0,0,0,0.1);
+  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
-  font-size: 2.8em;
+  font-size: 3em;
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+.cta {
+  display: inline-block;
+  background: #ffcc00;
+  color: #003366;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+.cta:hover {
+  background: #ffaa00;
 }
 
 /* Content Section */
@@ -129,24 +163,38 @@ nav a:hover {
   margin: 40px auto;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  flex-grow: 1; /* Membuat konten mengisi ruang kosong */
 }
 
-/* CTA Button */
-.cta {
-  display: inline-block;
-  background: #ffcc00;
+.content h2 {
+  font-size: 2em;
   color: #003366;
-  padding: 12px 25px;
-  margin-top: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 30px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s ease;
+  margin-bottom: 20px;
 }
 
-.cta:hover {
-  background: #ffaa00;
+.content h3 {
+  font-size: 1.5em;
+  color: #003366;
+  margin-top: 20px;
+}
+
+.content p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.content ul li {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 /* Footer */
@@ -158,6 +206,7 @@ footer {
   font-size: 0.95em;
   margin-top: 60px;
   border-top: 5px solid #0077aa;
+  margin-top: auto; /* Membuat footer tetap berada di bawah */
 }
 
 /* Responsive */
@@ -173,15 +222,41 @@ footer {
     margin-top: 10px;
   }
 
+  .hero {
+    padding: 60px 15px;
+  }
+
   .hero h1 {
     font-size: 2em;
   }
 
+  .hero p {
+    font-size: 1em;
+  }
+
+  .cta {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+
   .content {
-    padding: 30px 20px;
+    padding: 25px 15px;
+    margin: 20px 10px;
+  }
+
+  .content h2 {
+    font-size: 1.5em;
+  }
+
+  .content h3 {
+    font-size: 1.2em;
+  }
+
+  footer {
+    font-size: 0.85em;
+    padding: 20px 10px;
   }
 }
-
 /* Service Section */
 .service-list {
   display: grid;
@@ -249,275 +324,70 @@ footer {
   color: #555;
   line-height: 1.6;
 }
-/* Hero Section */
-.hero {
-  background: linear-gradient(to right, #005588, #0077aa);
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-  box-shadow: inset 0 -10px 30px rgba(0,0,0,0.1);
+/* Armada Section */
+.armada-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.hero h1 {
-  font-size: 2.8em;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.2em;
-}
-
-/* Content Section */
-.content {
-  background: white;
-  padding: 50px 30px;
-  max-width: 1000px;
-  margin: 40px auto;
+.armada-box {
+  background: #f9f9f9;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 119, 170, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #0077aa;
 }
 
-.content h2 {
-  font-size: 2em;
-  color: #003366;
-  margin-bottom: 20px;
+.armada-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 119, 170, 0.2);
 }
 
-.content h3 {
+.armada-box h3 {
+  margin-bottom: 12px;
   font-size: 1.5em;
   color: #003366;
-  margin-top: 20px;
 }
 
-.content p {
+.armada-box p {
   font-size: 1em;
   color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
 }
 
-.content ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 20px;
+/* Service Section */
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.content ul li {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 10px;
-}
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.service-box {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 119, 170, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #0077aa;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #e6f2f8;
-  color: #333;
-  line-height: 1.6;
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 119, 170, 0.2);
 }
 
-/* Header */
-header {
-  background: linear-gradient(to right, #004466, #006699);
-  color: white;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.service-box h3 {
+  margin-bottom: 12px;
+  font-size: 1.25em;
+  color: #005577;
 }
 
-header .logo {
-  font-size: 1.8em;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffcc00;
-}
-
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #e6f2f8;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Membuat body memenuhi tinggi layar */
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(to right, #0077aa, #66ccff);
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.3em;
-  margin-bottom: 30px;
-}
-
-.cta {
-  display: inline-block;
-  background: #ffcc00;
-  color: #003366;
-  padding: 12px 25px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 30px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease;
-}
-
-.cta:hover {
-  background: #ffaa00;
-}
-
-/* Content Section */
-.content {
-  background: white;
-  padding: 50px 30px;
-  max-width: 1000px;
-  margin: 40px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  flex-grow: 1; /* Membuat konten mengisi ruang kosong */
-}
-
-.content h2 {
-  font-size: 2em;
-  color: #003366;
-  margin-bottom: 20px;
-}
-
-.content h3 {
-  font-size: 1.5em;
-  color: #003366;
-  margin-top: 20px;
-}
-
-.content p {
-  font-size: 1em;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.content ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 20px;
-}
-
-.content ul li {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-/* Footer */
-footer {
-  background: #003366;
-  color: white;
-  padding: 30px;
-  text-align: center;
+.service-box p {
   font-size: 0.95em;
-  margin-top: 60px;
-  border-top: 5px solid #0077aa;
-  margin-top: auto; /* Membuat footer tetap berada di bawah */
+  color: #555;
+  line-height: 1.5;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-  }
-
-  .content {
-    padding: 30px 20px;
-  }
-}
-@media (max-width: 768px) {
-  .hero {
-    padding: 60px 15px;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-  }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  .cta {
-    padding: 10px 20px;
-    font-size: 0.95em;
-  }
-
-  .content {
-    padding: 25px 15px;
-    margin: 20px 10px;
-  }
-
-  .content h2 {
-    font-size: 1.5em;
-  }
-
-  .content h3 {
-    font-size: 1.2em;
-  }
-
-  footer {
-    font-size: 0.85em;
-    padding: 20px 10px;
-  }
-}
-
-
-
