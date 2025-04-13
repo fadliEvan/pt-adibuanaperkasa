@@ -140,7 +140,9 @@ nav a:hover {
 }
 
 .cta {
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
   background: #ffcc00;
   color: #003366;
   padding: 12px 25px;
@@ -150,6 +152,7 @@ nav a:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   transition: background 0.3s ease;
 }
+
 
 .cta:hover {
   background: #ffaa00;
